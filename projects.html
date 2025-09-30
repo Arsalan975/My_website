@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects</title>
+  <style>
+    /* Same background and reset as main page */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: Arial, sans-serif; color: #fff; overflow-x: hidden; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .video-bg {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: -2;
+    }
+    .overlay {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); z-index: -1;
+    }
+
+    header {
+      background: rgba(0,0,0,0.8);
+      padding: 15px 20px;
+      position: fixed; top: 0;
+      width: 100%; z-index: 1000;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center; color: #fff;
+    }
+    nav .logo { font-size: 1.5em; font-weight: bold; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a:hover { color: #00bcd4; }
+
+    section { padding: 100px 20px; max-width: 1000px; margin: 0 auto; }
+
+    h2 { text-align: center; margin-bottom: 20px; color: #00e5ff; font-size: 2.5rem; }
+
+    /* Buttons */
+    .project-buttons {
+      display: flex; justify-content: center; gap: 25px; margin-bottom: 35px;
+    }
+    .filter-btn {
+      position: relative; padding: 15px 35px; font-size: 1.1rem;
+      font-weight: bold; color: #fff; background: rgba(255,255,255,0.1);
+      border: none; border-radius: 10px; cursor: pointer;
+      overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    .filter-btn::before {
+      content: ""; position: absolute; top: -100%; left: -100%;
+      width: 200%; height: 200%;
+      background: linear-gradient(135deg, transparent 0%, #00e5ff 50%, transparent 100%);
+      transition: all 0.5s ease; opacity: 0;
+    }
+    .filter-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    }
+    .filter-btn:hover::before { top: 0; left: 0; opacity: 1; }
+
+    /* Project Grid */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      color: #fff;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.9);
+    }
+    .project-card img { width: 100%; height: 150px; object-fit: cover; }
+    .project-card .content { padding: 15px; }
+    .project-card h3 { margin-bottom: 10px; color: #00e5ff; }
+
+    /* Footer */
+    footer { background: rgba(0,0,0,0.8); color: #fff; text-align: center; padding: 15px; margin-top: 40px; }
+    .social-buttons { display: flex; justify-content: center; gap: 20px; margin: 15px 0 30px 0; }
+    .social-btn { display: flex; align-items: center; justify-content: center;
+      width: 50px; height: 50px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); transition: 0.3s;
+    }
+    .social-btn img { width: 60%; height: 60%; object-fit: contain; }
+    .social-btn:hover { transform: scale(1.2); box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
+    .social-btn.linkedin:hover { background: #0077b5; }
+    .social-btn.github:hover { background: #787777; }
+    .social-btn.gmail:hover { background: #ea4335; }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop class="video-bg">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <header>
+    <nav>
+      <div class="logo">Projects Page</div>
+      <ul>
+        <li><a href="index.html">← Back to Main</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-buttons">
+      <button class="filter-btn" data-category="android">Android</button>
+      <button class="filter-btn" data-category="uiux">UI/UX</button>
+      <button class="filter-btn" data-category="websites">Websites</button>
+    </div>
+
+    <div class="projects">
+      <!-- Android -->
+       
+      <a href="dmc.html" target="_blank" class="project-card" data-category="android">
+      <img src="DMCian App Login Screen.png" alt="Android DMCian app">
+      <div class="content">
+        <h3>Android DMCian app</h3>
+        <p>
+          An Android App Developed for the DMC College as my BCA Final Year project. The App Sets up appointments with the College Councellor and also sends the notices and announcements that are posted by the college to only the departments its meant for.
+        </p>
+      </div>
+    </a>
+
+    <a href="#" target="_blank" class="project-card" data-category="android">
+      <img src="Calculator.png" alt="Android Calculator App">
+      <div class="content">
+        <h3>Android Calculator App</h3>
+        <p>A calculator app using Java in Android Studio that can perform basic arithmetic operations.</p>
+      </div>
+    </a>
+
+    <a href="#" target="_blank" class="project-card" data-category="android">
+      <img src="Stopwatch.png" alt="Android Stopwatch App">
+      <div class="content">
+        <h3>Android Stopwatch App</h3>
+        <p>A Stopwatch app that displays minutes, seconds, and milliseconds, and allows users to start, pause, and reset the timer.</p>
+      </div>
+    </a>
+
+     <a href="#" target="_blank" class="project-card" data-category="android">
+      <img src="Tic Tac Toe.png" alt="Android Tic Tac Toe App">
+      <div class="content">
+        <h3>Android Tic Tac Toe App</h3>
+        <p>A Tic Tac Toe game app where two players can take turns placing their symbols (X or O) on a 3x3 grid. The app includes a reset option, allowing users to start a new game anytime.</p>
+      </div>
+    </a>
+
+     <a href="#" target="_blank" class="project-card" data-category="android">
+      <img src="QR code scanner app.png" alt="Android QR Code Scanner app">
+      <div class="content">
+        <h3>Android QR Code Scanner App</h3>
+        <p>A QR code scanner app that enables users to scan QR codes using their device's camera. The app extracts the encoded information, displays it on the screen, and offers options to open links or perform specific actions based on the scanned content.</p>
+      </div>
+    </a>
+
+
+      
+
+      <!-- UI/UX -->
+      
+
+        <a href="swiggy ui.html" target="_blank" class="project-card" data-category="uiux">
+      <img src="swiggy 2.png" alt="swiggy">
+      <div class="content">
+        <h3>Swiggy App UI/UX Replica</h3>
+        <p>
+        A complete UI/UX replica of the existing Swiggy food delivery app, designed in Figma.  
+          The goal was to recreate the app’s interface as closely as possible, focusing on accuracy, 
+          consistency, and maintaining the original look and feel of the Swiggy mobile experience. 
+        </p>
+      </div>
+    </a>
+
+      <!-- Websites -->
+      
+
+      <a href="hotel.html" target="_blank" class="project-card" data-category="websites">
+      <img src="hotel 1.png" alt="Hotel Booking Website">
+      <div class="content">
+        <h3>Hotel Booking Website</h3>
+        <p>
+          A responsive hotel booking website inspired by popular booking platforms, featuring room search, reservations, photo carousel, background video, and user-friendly navigation using HTML, CSS, JavaScript, PHP, and MySQL.
+        </p>
+      </div>
+    </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-buttons">
+      <a href="https://www.linkedin.com/in/arsalan-shaikh-491748236/" target="_blank" class="social-btn linkedin"><img src="linkedin.png"></a>
+      <a href="https://github.com/arsalan975" target="_blank" class="social-btn github"><img src="github.png"></a>
+      <a href="mailto:arsalanshaikh975@gmail.com" target="_blank" class="social-btn gmail"><img src="gmail.png"></a>
+    </div>
+    <p>&copy; 2025 Arsalan Shaikh. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll(".filter-btn");
+    const projects = document.querySelectorAll(".project-card");
+
+    function filterProjects(category) {
+      projects.forEach(project => {
+        if (project.dataset.category === category || category === "all") {
+          project.style.display = "block";
+        } else {
+          project.style.display = "none";
+        }
+      });
+    }
+
+    // Button click
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterProjects(btn.dataset.category);
+      });
+    });
+
+    // Default category from URL hash (?cat=android)
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get("cat") || "all";
+    filterProjects(cat);
+  </script>
+</body>
+</html>

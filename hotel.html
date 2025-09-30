@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Booking Website - Project Details</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Background Video */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(0,0,0,0.8);
+      padding: 15px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+
+    nav .logo { font-size: 1.5em; font-weight: bold; }
+
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: #fff; transition: color 0.3s; }
+    nav ul li a:hover { color: #00bcd4; }
+
+    section {
+      padding: 120px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #00e5ff;
+      font-size: 2rem;
+    }
+
+    /* Project Details  */
+    .project-detail {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      gap: 30px;
+    }
+
+    .project-detail img {
+      width: 45%;
+      border-radius: 10px;
+      border: 3px solid #00bcd4;
+    }
+
+    .project-text {
+      width: 50%;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Alternate layout */
+    .project-detail.reverse { flex-direction: row-reverse; }
+
+    /* Footer */
+    footer {
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .project-detail, .project-detail.reverse {
+        flex-direction: column;
+      }
+      .project-detail img, .project-text { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <video autoplay muted loop class="video-bg">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  
+  <header>
+    <nav>
+      <div class="logo">Arsalan Shaikh</div>
+      <ul>
+        <li><a href="index.html">Back to Portfolio</a></li>
+         <li><a href="projects.html">Back to Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <section>
+    <h2>Hotel Booking Website</h2>
+
+    
+    <div class="project-detail">
+      <img src="hotel 3.png" alt="hotel booking Screenshot">
+      <div class="project-text">
+        <h3>Overview</h3>
+        <p>
+            A responsive hotel booking website inspired by popular booking platforms, featuring room search, reservations, photo carousel, background video, and user-friendly navigation using HTML, CSS, JavaScript, PHP, and MySQL.
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="project-detail reverse">
+      <img src="hotel 1.png" alt="DMCian App Dashboard">
+      <div class="project-text">
+        <h3>Features</h3>
+        <p>
+          - Searching for Rooms <br>
+          - Booking For Rooms <br>
+          - Browsing Facilities Provided<br>
+        </p>
+      </div>
+    </div>
+
+   
+    <div class="project-detail">
+      <img src="hotel 2.png" alt="DMCian App Settings">
+      <div class="project-text">
+        <h3>Technologies Used</h3>
+        <p>
+          - Frontend: HTML,CSS<br>
+          - Backend: PHP <br>
+          - Database: SQL <br>
+        </p>
+      </div>
+    </div>
+  </section>
+
+ 
+  <footer>
+    <p>&copy; 2025 Arsalan Shaikh. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
