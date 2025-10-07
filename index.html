@@ -147,14 +147,14 @@
 /* desktop */
 @keyframes typing {
   from { width: 0; }
-  to { width: 70%; }  
+  to { width: 50%; }  
 }
 
 /* Mobile  */
 @media (max-width: 768px) {
   @keyframes typing {
     from { width: 0; }
-    to { width: 100%; } 
+    to { width: 85%; } 
   }
 
   .typing-container {
@@ -457,31 +457,81 @@
       }
     }
 
-    /* Education Section */
+    
+/* Education Section */
 #education {
-  text-align: center;
   animation: fadeUp 1.5s ease;
+  text-align: center;
 }
 
 .edu-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
   background: rgba(255,255,255,0.1);
-  margin: 15px auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 20px 25px;
   border-radius: 12px;
-  backdrop-filter: blur(5px);
-  width: 80%;
+  backdrop-filter: blur(6px);
+  width: 85%;
+  max-width: 800px;
   transition: transform 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.edu-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .edu-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
 
-.edu-card h3 {
+.edu-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #00e5ff;
+  box-shadow: 0 0 20px rgba(0,229,255,0.3);
+  transition: transform 0.3s ease;
+}
+
+.edu-card img:hover {
+  transform: scale(1.05);
+}
+
+.edu-content {
+  text-align: left;
+}
+
+.edu-content h3 {
   color: #00e5ff;
   margin-bottom: 8px;
 }
+
+.edu-content p {
+  margin-bottom: 6px;
+  color: #e0f7fa;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .edu-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .edu-content {
+    text-align: center;
+  }
+}
+
 
 /* Skill Animation */
 #skills ul li {
@@ -522,7 +572,7 @@
   </header>
 
   <section id="home">
-    <div class="typing-container">Welcome to My Portfolio Website</div>
+    <div class="typing-container">Welcome to My Website</div>
 
     <p>
      Here’s a glimpse into my journey as a developer and creator
@@ -622,15 +672,23 @@ If you’d like to connect, discuss ideas, or explore opportunities — feel fre
 
   <section id="education">
   <h2>Education</h2>
+
   <div class="edu-card">
-    <h3>Master of Computer Applications (MCA)</h3>
-    <p>Amrita Vishwa Vidyapeetham University, Kochi Campus</p>
-    <p><em>2024 – 2026</em></p>
+    <img src="Logos/amrita_logo.jpg" alt="Amrita University Logo">
+    <div class="edu-content">
+      <h3>Master of Computer Applications (MCA)</h3>
+      <p>Amrita Vishwa Vidyapeetham University, Kochi Campus</p>
+      <p><em>2024 – 2026</em></p>
+    </div>
   </div>
+
   <div class="edu-card">
-    <h3>Bachelor of Computer Applications (BCA)</h3>
-    <p>Dnyanprassarak Mandal's College & Research Centre, Goa University</p>
-    <p><em>2020 – 2023</em></p>
+    <img src="Logos/dmc_logo.jpg" alt="DMC College Logo">
+    <div class="edu-content">
+      <h3>Bachelor of Computer Applications (BCA)</h3>
+      <p>Dnyanprassarak Mandal's College & Research Centre, Goa University</p>
+      <p><em>2020 – 2023</em></p>
+    </div>
   </div>
 </section>
 
@@ -672,6 +730,19 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.2 });
 observer.observe(document.querySelector("#skills"));
+
+// Education Section Animation
+const eduCards = document.querySelectorAll('.edu-card');
+const eduObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+eduCards.forEach(card => eduObserver.observe(card));
+
 
   </script>
 </body>
